@@ -12,6 +12,7 @@ public class CharController : SpaceshipBase {
             
         public const string HorizontalAxis = "Horizontal";
         public const string VerticalAxis = "Vertical";
+		public const string FireButtonName = "Fire1";
                 
         private Vector3 GetInputVector()
         {                    
@@ -21,11 +22,13 @@ public class CharController : SpaceshipBase {
             return new Vector3(HorizontalInput, VerticalInput, 0);    
         }
 
+		protected override void Update() {
+			base.Update();
 
-        void Shoot() {
-
-
-        }
+			if (Input.GetButton ( FireButtonName )) {
+				Shoot ();
+			}
+		}
 
         protected override void Move()
         {
